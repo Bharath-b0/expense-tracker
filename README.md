@@ -34,13 +34,13 @@ Ensure you have the following installed on your machine:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/budgetly.git
+    git clone https://github.com/Bharath-b0/expense-tracker.git
     ```
 
 2. Navigate into the project directory:
 
     ```bash
-    cd budgetly
+    cd expense-tracker
     ```
 
 3. Install the required dependencies:
