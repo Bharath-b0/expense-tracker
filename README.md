@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# Budgetly - Personal Expense Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Budgetly** is a personal expense tracker application designed to help individuals manage their finances effectively. It provides an easy-to-use interface for adding income, tracking expenses, and analyzing spending habits with a dynamic pie chart. Built using **React**, **Ant Design**, **MUI**, **Firebase**, and **Toastify**, Budgetly enables users to stay on top of their financial goals.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Current Balance**: Displays the current balance after adding income and expenses.
+- **Add Income**: Easily add sources of income to track earnings.
+- **Add Expense**: Track all types of expenses to maintain a budget.
+- **Expense Analysis**: Visualize your expenses with a pie chart for easy analysis.
+- **Notifications**: Toast notifications for successful actions and error handling.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React**: For building the user interface.
+- **Ant Design**: For responsive and aesthetically pleasing UI components.
+- **MUI**: For additional UI components and styling.
+- **Firebase**: For backend services such as data storage and user authentication.
+- **Toastify**: For displaying toast notifications for user interactions.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+To get started with **Budgetly**, follow the instructions below:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+Ensure you have the following installed on your machine:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Node.js** (v14 or above)
+- **npm** or **yarn** (for package management)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
 
-### `npm run eject`
+    ```bash
+    git clone https://github.com/yourusername/budgetly.git
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Navigate into the project directory:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    ```bash
+    cd budgetly
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Install the required dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    ```bash
+    npm install
+    ```
 
-## Learn More
+4. Set up Firebase:
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+   - Get your Firebase config credentials and add them to the project.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+5. Run the app locally:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    ```bash
+    npm start
+    ```
 
-### Code Splitting
+    This will start the development server at `http://localhost:3000/`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Firebase Configuration
 
-### Analyzing the Bundle Size
+1. After creating the Firebase project, go to the Firebase Console and select **Authentication** to enable sign-in methods.
+2. Set up **Firestore Database** in Firebase to store user data.
+3. Replace the Firebase credentials in the `firebase.js` file (located in the `src` folder) with your project's configuration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    ```js
+    // src/firebase.js
+    const firebaseConfig = {
+      apiKey: "your-api-key",
+      authDomain: "your-auth-domain",
+      projectId: "your-project-id",
+      storageBucket: "your-storage-bucket",
+      messagingSenderId: "your-sender-id",
+      appId: "your-app-id"
+    };
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    const firebaseApp = firebase.initializeApp(firebaseConfig);
+    export const db = firebaseApp.firestore();
+    ```
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+For deployment, you can use Firebase Hosting or any other cloud service.
 
-### `npm run build` fails to minify
+1. Install Firebase CLI:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    ```bash
+    npm install -g firebase-tools
+    ```
+
+2. Authenticate Firebase:
+
+    ```bash
+    firebase login
+    ```
+
+3. Initialize Firebase in your project:
+
+    ```bash
+    firebase init
+    ```
+
+4. Deploy the app:
+
+    ```bash
+    firebase deploy
+    ```
+
+## Usage
+
+- Upon loading the app, you'll see the **current balance** at the top.
+- Use the **Add Income** button to add any sources of income.
+- Use the **Add Expense** button to record your expenses.
+- The pie chart will update automatically to show the distribution of your expenses.
+
+## Contributing
+
+We welcome contributions to **Budgetly**! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Make your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push your branch (`git push origin feature-name`).
+5. Create a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- **React** for the framework.
+- **Ant Design** and **MUI** for the UI components.
+- **Firebase** for backend services.
+- **Toastify** for notification handling.
